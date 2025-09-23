@@ -1,3 +1,7 @@
+# FD25-Hooked-On-React
+
+Uppgift - F25D-Filuppladdning, dataläsning i grupp
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
