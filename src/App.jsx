@@ -1,13 +1,10 @@
 import "./App.css";
+import UploadFile from "./components/UploadFile";
 
 function App() {
   return (
     <>
-      <h1>TJENA LAGET</h1>
-
-      <h3>Hej! /Ida</h3>
-
-      <h2>hallå</h2>
+      <UploadFile/>
     
     </>
   );
