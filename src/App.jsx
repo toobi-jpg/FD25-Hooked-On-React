@@ -1,14 +1,19 @@
 import "./App.css";
+import ExportButton from "./components/ExportButton";
+import { useState } from "react";
 
 function App() {
+  //Test data i state för export
+  const [columns, setColumns] = useState(["Name", "Age", "City"]);
+  const [rows, setRows] = useState([
+    ["Anna", 25, "Stockholm"],
+    ["Karl", 20, "Örebro"],
+    ["Sara", 23, "Uppsala"],
+  ]);
+
   return (
     <>
-      <h1>TJENA LAGET</h1>
-
-      <h3>Hej! /Ida</h3>
-
-      <h2>hallå</h2>
-    
+      <ExportButton columns={columns} rows={rows} />
     </>
   );
 }
