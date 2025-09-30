@@ -1,18 +1,16 @@
-import ExcelJS from "exceljs";
+import ExcelJS from 'exceljs';
 
 const UploadFile = () => {
-
   //En asynkron eventhanterare körs när användaren laddar upp en fil.
   const handleFile = async (e) => {
-    
     //Files är en lista med uppladdade filer. Här hämtas den första (och enda) filen i listan,
     //eftersom endast en fil i taget kan laddas upp i detta fall.
     const file = e.target.files[0];
 
     //Om filen som laddas upp inte är en xlsx-fil så får användaren ett felmeddelande,
     //och funktionen stoppas här.
-    if (!file.name.endsWith(".xlsx")) {
-      alert("Endast .xlsx-filer är tillåtna.");
+    if (!file.name.endsWith('.xlsx')) {
+      alert('Endast .xlsx-filer är tillåtna.');
       return;
     }
 
