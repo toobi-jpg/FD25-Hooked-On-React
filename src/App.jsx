@@ -5,6 +5,7 @@ import { DarkTheme } from "./Themes/darktheme.js";
 import DummyDemo from "./components/DummyDemo.jsx";
 
 import EditableTable from "./components/table/EditableTable.jsx";
+import ExportButton from "./components/ExportButton";
 
 function App(){
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -12,17 +13,23 @@ function App(){
 
   const [tableData, setTableData] = useState(null);
 
+  //Test data i state för export
+  const [columns, setColumns] = useState(["Name", "Age", "City"]);
+  const [rows, setRows] = useState([
+    ["Anna", 25, "Stockholm"],
+    ["Karl", 20, "Örebro"],
+    ["Sara", 23, "Uppsala"],
+  ]);
+
   return (
     <ThemeProvider theme={currentTheme}>
       <CssBaseline />
       <div>
-        <Button
-          variant="contained"
-          onClick={() => setIsDarkMode(!isDarkMode)}
-        >
+        <Button variant="contained" onClick={() => setIsDarkMode(!isDarkMode)}>
           {isDarkMode ? "light" : "dark"} mode
         </Button>
       </div>
+      <ExportButton columns={columns} rows={rows} />
       <DummyDemo />
       {tableData ? (
         <div style={{ padding: 16 }}>
