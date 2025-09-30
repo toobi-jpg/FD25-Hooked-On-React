@@ -1,3 +1,5 @@
+
+import UploadFile from "./components/UploadFile";
 import { useState } from "react";
 import { ThemeProvider, CssBaseline, Button } from "@mui/material";
 import { LightTheme } from "./Themes/lighttheme.js";
@@ -22,6 +24,10 @@ function App(){
   ]);
 
   return (
+    <>
+      <UploadFile/>
+    
+    
     <ThemeProvider theme={currentTheme}>
       <CssBaseline />
       <div>
@@ -44,6 +50,7 @@ function App(){
       /*skicka in setTableData hit:
         <Upload onLoaded={setTableData} />*/}
     </ThemeProvider>
+    </>
   );
 }
 
