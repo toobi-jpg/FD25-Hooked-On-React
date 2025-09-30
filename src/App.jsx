@@ -1,4 +1,4 @@
-import "./App.css";
+
 import UploadFile from "./components/UploadFile";
 import { useState } from "react";
 import { ThemeProvider, CssBaseline, Button } from "@mui/material";
