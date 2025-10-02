@@ -3,10 +3,9 @@ import { useState } from 'react';
 import { ThemeProvider, CssBaseline, Button } from '@mui/material';
 import { LightTheme } from './Themes/lighttheme.js';
 import { DarkTheme } from './Themes/darktheme.js';
-import DummyDemo from './components/DummyDemo.jsx';
-
 import EditableTable from './components/table/EditableTable.jsx';
 import ExportButton from './components/ExportButton';
+
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -24,31 +23,36 @@ function App() {
 
   return (
     <>
-      <UploadFile />
+    
+    <ThemeProvider theme={currentTheme}>
+      <CssBaseline />
 
-      <ThemeProvider theme={currentTheme}>
-        <CssBaseline />
-        <div>
+      <div>
           <Button
             variant="contained"
-            onClick={() => setIsDarkMode(!isDarkMode)}
-          >
+            onClick={() => setIsDarkMode(!isDarkMode)}>
             {isDarkMode ? 'light' : 'dark'} mode
           </Button>
         </div>
+
+        <UploadFile />
         <ExportButton columns={columns} rows={rows} />
-        <DummyDemo />
-        {tableData ? (
-          <div style={{ padding: 16 }}>
+          {tableData ? (
+          <div>
             <EditableTable tableData={tableData} onSave={setTableData} />
           </div>
+
         ) : (
-          <p style={{ padding: 16, color: '#666' }}>
+          <p>
             Ladda upp en .xlsx via import-delen så visas tabellen här.
           </p>
         )}
+
+
         {/*skicka in setTableData hit:
         <Upload onLoaded={setTableData} />*/}
+
+
       </ThemeProvider>
     </>
   );

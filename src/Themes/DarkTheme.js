@@ -26,15 +26,22 @@ export const DarkTheme = createTheme({
           fontWeight: 600,
           padding: '8px 24px',
           border: '1px solid #000000ff',
+          boxShadow: '0px 4px 8px rgba(0,0,0,0.35)',
+          margin: '10px',
         },
+
         contained: {
           backgroundColor: '#202749f1',
           color: '#e6e6e6ff',
+          padding: '4px 15px',
+          display: 'grid',
+          justifyContent: 'flex-start',
           '&:hover': {
             backgroundColor: '#a3c9f7',
             color: '#222',
           },
         },
+
         outlined: {
           backgroundColor: '#18191b',
           color: '#a3c9f7',
@@ -46,6 +53,7 @@ export const DarkTheme = createTheme({
       },
     },
   },
+
   shadows: [
     'none',
     '0px 2px 4px rgba(0,0,0,0.25)',
