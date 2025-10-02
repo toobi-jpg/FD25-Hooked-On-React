@@ -1,4 +1,5 @@
 import ExcelJS from 'exceljs';
+import { Button } from '@mui/material';
 
 const UploadFile = () => {
   //En asynkron eventhanterare körs när användaren laddar upp en fil.
@@ -41,11 +42,18 @@ const UploadFile = () => {
   return (
     <div>
       <h3>Ladda upp en xlsx-fil (Excel/Google Sheet):</h3>
+      <label htmlFor="upload-file">
       <input
+        style={{ display: 'none' }}
+        id="upload-file"
         type="file"
         accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         onChange={handleFile}
       />
+        <Button variant="outlined" component="span">
+          Ladda upp fil
+        </Button>
+      </label>
     </div>
   );
 };

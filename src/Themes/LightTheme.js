@@ -28,11 +28,16 @@ export const LightTheme = createTheme({
           fontWeight: 600,
           padding: '8px 24px',
           border: '1px solid #625faca1',
+          boxShadow: '0px 4px 8px rgba(0,0,0,0.12)',
+          margin: '10px',
         },
 
         contained: {
           backgroundColor: '#a3c9f7',
           color: '#222',
+          padding: '4px 15px',
+          display: 'flex',
+          justifyContent: 'flex-start',
           '&:hover': {
             backgroundColor: '#202749f1',
             color: '#f1f1f1ff',
@@ -40,8 +45,8 @@ export const LightTheme = createTheme({
         },
 
         outlined: {
-          backgroundColor: '#fff',
-          color: '#a3c9f7',
+          backgroundColor: '#ffffff',
+          color: '#050505ff',
           '&:hover': {
             backgroundColor: '#202749f1',
             color: '#e7e7e7ff',

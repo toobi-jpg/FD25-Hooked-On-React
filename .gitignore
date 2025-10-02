@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # Ignore demo file
-src/demo.js
+src/components/DummyDemo.jsx
