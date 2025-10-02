@@ -1,5 +1,5 @@
 import UploadButton from './components/UploadButton.jsx';
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import { ThemeProvider, CssBaseline, Button } from '@mui/material';
 import { LightTheme } from './Themes/lighttheme.js';
 import { DarkTheme } from './Themes/darktheme.js';
@@ -11,10 +11,6 @@ function App() {
   const currentTheme = isDarkMode ? DarkTheme : LightTheme;
 
   const [tableData, setTableData] = useState(null);
-
-  useEffect(() => {
-    console.log('tableData changed in app.jsx');
-  }, [tableData]);
 
   return (
     <>
