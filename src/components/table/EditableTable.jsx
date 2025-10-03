@@ -3,11 +3,12 @@ import {
   MaterialReactTable,
   useMaterialReactTable,
 } from 'material-react-table';
+import Box from '@mui/material/Box';
 
 /** Wrapper utan hooks (så vi får returnera tidigt utan hook-varningar) */
 export default function EditableTable({ tableData, onSave }) {
   if (!tableData || !tableData.columns?.length) {
-    return <p>Importera en .xlsx för att börja.</p>;
+    return <p>Import a .xlsx to start</p>;
   }
   return <EditableTableCore tableData={tableData} onSave={onSave} />;
 }
@@ -58,12 +59,21 @@ function EditableTableCore({ tableData, onSave }) {
     //enkel UX
     enableColumnResizing: true,
     enableStickyHeader: true,
-    initialState: { density: 'compact', pagination: { pageSize: 50 } },
+    /*initialState: { density: 'compact', pagination: { pageSize: 50 } }, */
   });
 
   return (
-    <div style={{ minHeight: 480 }}>
+    <Box
+      sx={{
+        minHeight: 480,
+        margin: 5,
+        boxShadow: 2,
+        borderRadius: 3,
+        backgroundColor: (theme) => theme.palette.customDefault.main,
+        color: (theme) => theme.palette.text.secondary,
+      }}
+    >
       <MaterialReactTable table={table} />
-    </div>
+    </Box>
   );
 }

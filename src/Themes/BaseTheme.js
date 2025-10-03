@@ -1,5 +1,4 @@
 export const baseThemeOptions = {
-
   
   typography: {
     fontFamily: "'Roboto', sans-serif",
@@ -15,10 +14,12 @@ export const baseThemeOptions = {
     h2: {
       fontFamily: "'Montserrat', sans-serif",
       fontSize: '32px',
-      fontWeight: 200,
+      fontWeight: 300,
       textShadow: '0px 1px 8px #2525491c',
-      padding: '1rem',
+      padding: '1.5rem',
       textAlign: 'center',
+      letterSpacing: '0.15em',  
+      textTransform: 'uppercase',
       gap: '1rem',
     },
     h3: {
@@ -33,7 +34,7 @@ export const baseThemeOptions = {
     h4: {
       fontFamily: "'Montserrat', sans-serif",
       fontSize: '24px',
-      fontWeight: 600,
+      fontWeight: '500',
       textShadow: '0px 0px 8px #00000038',
       padding: '1rem',
       textAlign: 'center',
@@ -43,6 +44,12 @@ export const baseThemeOptions = {
       fontSize: '18px',
       lineHeight: 1.6,
       padding: '1rem',
+      textAlign: 'center',
+      gap: '2rem',
+    },
+        body2: {
+      fontSize: '12px',
+      lineHeight: 1.2,
       textAlign: 'center',
       gap: '2rem',
     },

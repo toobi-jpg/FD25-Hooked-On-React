@@ -1,5 +1,5 @@
 import UploadXLSX from '../utils/UploadXLSX';
-import { Button } from '@mui/material';
+import Button from '@mui/material/Button';
 
 const UploadButton = ({ setTableData }) => {
   const handleUpload = async (e) => {
@@ -10,7 +10,7 @@ const UploadButton = ({ setTableData }) => {
 
   return (
     <div>
-      <h3>Ladda upp en xlsx-fil (Excel/Google Sheet):</h3>
+      <h4>Upload a .xlsx file (Excel/Google Sheet):</h4>
       <label htmlFor="upload-file">
         <input
           style={{ display: 'none' }}
@@ -20,7 +20,7 @@ const UploadButton = ({ setTableData }) => {
           onChange={handleUpload}
         />
         <Button variant="outlined" component="span">
-          Ladda upp fil
+          Upload file
         </Button>
       </label>
     </div>
