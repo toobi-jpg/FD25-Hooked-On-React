@@ -28,14 +28,6 @@ const UploadXLSX = async (e) => {
   //Det första bladet i arbetsboken hämtas och sparas som "worksheet".
   const worksheet = workbook.getWorksheet(1);
 
-  /*------------- Den här console.loggen kan tas bort sen ------------------ */
-  //Varje rad och radnummer i bladet gås igenom.
-  //row.values är en array med värden från varje cell i xlsx-bladet.
-  //Radnumren och cellvärdena skrivs ut i konsollen.
-  //   worksheet.eachRow((row, rowIndex) => {
-  //     console.log(rowIndex, row.values);
-  //   });
-
   // gör om exceljs object till enklare arrays
   const columns = worksheet._columns.map((col) => col.key || col.header || '');
 

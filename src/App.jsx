@@ -1,50 +1,64 @@
 import UploadButton from './components/UploadButton.jsx';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { ThemeProvider, CssBaseline, Button } from '@mui/material';
 import { LightTheme } from './Themes/lighttheme.js';
 import { DarkTheme } from './Themes/darktheme.js';
 import EditableTable from './components/table/EditableTable.jsx';
 import ExportButton from './components/ExportButton';
+import SimpleNavbar from './components/NavBar.jsx';
+import Box from '@mui/material/Box';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const currentTheme = isDarkMode ? DarkTheme : LightTheme;
-
   const [tableData, setTableData] = useState(null);
-
-  useEffect(() => {
-    console.log('tableData changed in app.jsx');
-  }, [tableData]);
 
   return (
     <>
       <ThemeProvider theme={currentTheme}>
         <CssBaseline />
 
-        <div>
-          <Button
-            variant="contained"
-            onClick={() => setIsDarkMode(!isDarkMode)}
-          >
-            {isDarkMode ? 'light' : 'dark'} mode
-          </Button>
-        </div>
+        <SimpleNavbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
         <UploadButton setTableData={setTableData} />
-        <ExportButton tableData={tableData} />
-
-        {tableData ? (
-          <div style={{ padding: 16 }}>
-            <EditableTable tableData={tableData} onSave={setTableData} />
-          </div>
-        ) : (
-          <p>Ladda upp en .xlsx via import-delen så visas tabellen här.</p>
+          {tableData ? (
+          <>
+            <Box
+              sx={{
+                maxWidth: 960,
+                margin: '2rem auto',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: (theme) => theme.palette.customDefault2.main,
+                borderRadius: 3,
+              }}
+            >
+              <EditableTable tableData={tableData} onSave={setTableData} />
+            </Box>
+              <ExportButton tableData={tableData} />
+              </>
+              ) : (
+            <Box
+              sx={{
+              boxShadow: 2,
+              maxWidth: 950,
+              margin: '2rem auto',
+              minHeight: 480,
+              backgroundColor: (theme) => theme.palette.customDefault2.main,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderRadius: 3,
+              color: (theme) => theme.palette.text.secondary,
+              }}
+            >
+              <h4>Upload a .xlsx file to make the data show up here</h4>
+            </Box>
         )}
-
-        {/*skicka in setTableData hit:
-        <Upload onLoaded={setTableData} />*/}
+        
       </ThemeProvider>
     </>
-  );
+  ); 
 }
 
 export default App;

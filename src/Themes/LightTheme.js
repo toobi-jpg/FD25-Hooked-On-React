@@ -7,16 +7,18 @@ export const LightTheme = createTheme({
   palette: {
     mode: 'light',
     background: {
-      default: '#f5f6f8',
-      paper: '#6993c7bd',
+      default: '#c2c2c2ff',
+      paper: '#485c77',
     },
     text: {
-      primary: '#080808ff',
-      secondary: '#eeeeeef1',
+      primary: '#080808',
+      secondary: '#fafafaff',
     },
-    primary: { main: '#76a3daff' },
+    primary: { main: '#76a3daa1' },
     secondary: { main: '#42417ce7' },
-    divider: '#e0e0e0',
+    divider: '#000000ff',
+    customDefault: { main: '#1f1f1fff' },    
+    customDefault2: { main: '#7c97bbff' },
   },
 
   components: {
@@ -25,10 +27,6 @@ export const LightTheme = createTheme({
         root: {
           borderRadius: '12px',
           textTransform: 'none',
-          fontWeight: 600,
-          padding: '8px 24px',
-          border: '1px solid #625faca1',
-          boxShadow: '0px 4px 8px rgba(0,0,0,0.12)',
           margin: '10px',
         },
 
@@ -38,6 +36,7 @@ export const LightTheme = createTheme({
           padding: '4px 15px',
           display: 'flex',
           justifyContent: 'flex-start',
+          boxShadow: '0px 4px 8px rgba(0,0,0,0.35)',
           '&:hover': {
             backgroundColor: '#202749f1',
             color: '#f1f1f1ff',
@@ -45,10 +44,13 @@ export const LightTheme = createTheme({
         },
 
         outlined: {
-          backgroundColor: '#ffffff',
-          color: '#050505ff',
+          backgroundColor: '#ffffffa9',
+          color: '#0c0c0cff',
+          boxShadow: '0px 4px 8px rgba(0,0,0,0.35)',
+          padding: '10px 20px',
+          border: '3px solid #42417ce7',
           '&:hover': {
-            backgroundColor: '#202749f1',
+            backgroundColor: '#000000c7',
             color: '#e7e7e7ff',
           },
         },
@@ -66,11 +68,11 @@ export const LightTheme = createTheme({
 
   typography: {
     h1: { ...baseThemeOptions.typography?.h1, color: '#222' },
-    h2: { ...baseThemeOptions.typography?.h2, color: '#28284ef3' },
+    h2: { ...baseThemeOptions.typography?.h2, color: '#667fadf3' },
     h3: { ...baseThemeOptions.typography?.h3, color: '#2e2e2eff' },
     h4: { ...baseThemeOptions.typography?.h4, color: '#a3c9f7' },
-    h5: { ...baseThemeOptions.typography?.h5, color: '#1b1b1bff' },
-    body1: { ...baseThemeOptions.typography?.body1, color: '#222' },
-    body2: { ...baseThemeOptions.typography?.body2, color: '#ffffffff' },
+    h5: { ...baseThemeOptions.typography?.h5, color: '#1d1d1dff' },
+    body1: { ...baseThemeOptions.typography?.body1, color: '#494949ff' },
+    body2: { ...baseThemeOptions.typography?.body2, color: '#636363ff' },
   },
 });
