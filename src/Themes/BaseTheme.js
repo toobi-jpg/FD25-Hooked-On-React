@@ -1,0 +1,66 @@
+export const baseThemeOptions = {
+  
+  typography: {
+    fontFamily: "'Roboto', sans-serif",
+    h1: {
+      fontFamily: "'Montserrat', system-ui",
+      fontSize: '56px',
+      fontWeight: 400,
+      textShadow: '0px 0px 8px #0000003a',
+      padding: '2rem',
+      textAlign: 'center',
+      gap: '2rem',
+    },
+    h2: {
+      fontFamily: "'Montserrat', sans-serif",
+      fontSize: '32px',
+      fontWeight: 300,
+      textShadow: '0px 1px 8px #2525491c',
+      padding: '1.5rem',
+      textAlign: 'center',
+      letterSpacing: '0.15em',  
+      textTransform: 'uppercase',
+      gap: '1rem',
+    },
+    h3: {
+      fontFamily: "'Montserrat', sans-serif",
+      fontSize: '28px',
+      fontWeight: 600,
+      textShadow: '0px 1px 8px #0000004f',
+      padding: '1rem',
+      textAlign: 'center',
+      gap: '1rem',
+    },
+    h4: {
+      fontFamily: "'Montserrat', sans-serif",
+      fontSize: '24px',
+      fontWeight: '500',
+      textShadow: '0px 0px 8px #00000038',
+      padding: '1rem',
+      textAlign: 'center',
+      gap: '1rem',
+    },
+    body1: {
+      fontSize: '18px',
+      lineHeight: 1.6,
+      padding: '1rem',
+      textAlign: 'center',
+      gap: '2rem',
+    },
+        body2: {
+      fontSize: '12px',
+      lineHeight: 1.2,
+      textAlign: 'center',
+      gap: '2rem',
+    },
+  },
+  accentColors: {
+    success: '#7bdf7e8a',
+    error: '#7914256c',
+    warning: '#f5aa09da',
+  },
+  shape: {
+    borderRadius: 8,
+  },
+  spacing: 3,
+};

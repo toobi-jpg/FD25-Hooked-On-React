@@ -10,6 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.2",
+    "@mui/material": "^7.3.2",
+    "exceljs": "^4.4.0",
+    "install": "^0.13.0",
+    "jspdf": "^3.0.3",
+    "jspdf-autotable": "^5.0.2",
+    "material-react-table": "^3.2.1",
+    "npm": "^11.6.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
@@ -22,6 +32,20 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.4.0",
+    "prettier": "^3.6.2",
     "vite": "^7.1.7"
-  }
+  },
+  "description": "Uppgift - F25D-Filuppladdning, dataläsning i grupp",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toobi-jpg/FD25-Hooked-On-React.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/toobi-jpg/FD25-Hooked-On-React/issues"
+  },
+  "homepage": "https://github.com/toobi-jpg/FD25-Hooked-On-React#readme"
 }
