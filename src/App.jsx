@@ -1,5 +1,5 @@
 import UploadButton from './components/UploadButton.jsx';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { ThemeProvider, CssBaseline, Button } from '@mui/material';
 import { LightTheme } from './Themes/lighttheme.js';
 import { DarkTheme } from './Themes/darktheme.js';
