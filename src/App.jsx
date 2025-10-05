@@ -13,6 +13,11 @@ function App() {
   const currentTheme = isDarkMode ? DarkTheme : LightTheme;
   const [tableData, setTableData] = useState(null);
 
+  const handleSave = (updatedData) => {
+    setTableData(updatedData);
+    console.log('table data updated');
+  };
+
   return (
     <>
       <ThemeProvider theme={currentTheme}>
@@ -20,7 +25,7 @@ function App() {
 
         <SimpleNavbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
         <UploadButton setTableData={setTableData} />
-          {tableData ? (
+        {tableData ? (
           <>
             <Box
               sx={{
@@ -33,13 +38,13 @@ function App() {
                 borderRadius: 3,
               }}
             >
-              <EditableTable tableData={tableData} onSave={setTableData} />
+              <EditableTable tableData={tableData} onSave={handleSave} />
             </Box>
-              <ExportButton tableData={tableData} />
-              </>
-              ) : (
-            <Box
-              sx={{
+            <ExportButton tableData={tableData} />
+          </>
+        ) : (
+          <Box
+            sx={{
               boxShadow: 2,
               maxWidth: 950,
               margin: '2rem auto',
@@ -50,15 +55,14 @@ function App() {
               justifyContent: 'center',
               borderRadius: 3,
               color: (theme) => theme.palette.text.secondary,
-              }}
-            >
-              <h4>Upload a .xlsx file to make the data show up here</h4>
-            </Box>
+            }}
+          >
+            <h4>Upload a .xlsx file to make the data show up here</h4>
+          </Box>
         )}
-        
       </ThemeProvider>
     </>
-  ); 
+  );
 }
 
 export default App;
