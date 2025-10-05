@@ -1,10 +1,9 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef } from 'react';
 import {
   MaterialReactTable,
   useMaterialReactTable,
 } from 'material-react-table';
 import Box from '@mui/material/Box';
-
 /** Wrapper utan hooks (så vi får returnera tidigt utan hook-varningar) */
 export default function EditableTable({ tableData, onSave }) {
   if (!tableData || !tableData.columns?.length) {
@@ -12,17 +11,30 @@ export default function EditableTable({ tableData, onSave }) {
   }
   return <EditableTableCore tableData={tableData} onSave={onSave} />;
 }
-
 function EditableTableCore({ tableData, onSave }) {
   const { columns, rows } = tableData;
+  const currentDataRef = useRef(rows);
 
   const mrtColumns = useMemo(
     () =>
       columns.map((label, i) => ({
         accessorKey: `c${i}`,
         header: label || `Col ${i + 1}`,
+        muiEditTextFieldProps: ({ cell, row }) => ({
+          onBlur: (e) => {
+            const colIndex = Number(cell.column.id.slice(1));
+            const rowIndex = row.index;
+
+            if (!currentDataRef.current[rowIndex]) {
+              currentDataRef.current[rowIndex] = [...rows[rowIndex]];
+            }
+            currentDataRef.current[rowIndex][colIndex] = e.target.value;
+
+            onSave({ columns, rows: currentDataRef.current });
+          },
+        }),
       })),
-    [columns]
+    [columns, rows, onSave]
   );
 
   const mrtData = useMemo(
@@ -33,29 +45,12 @@ function EditableTableCore({ tableData, onSave }) {
     [columns, rows]
   );
 
-  function commitCell(rowIndex, columnId, newValue) {
-    const colIndex = Number(columnId.slice(1));
-    const nextRows = [...rows];
-    nextRows[rowIndex] = nextRows[rowIndex].map((v, j) =>
-      j === colIndex ? newValue : v
-    );
-    onSave({ columns, rows: nextRows });
-  }
-
   const table = useMaterialReactTable({
     columns: mrtColumns,
     data: mrtData,
     enableEditing: true,
     editDisplayMode: 'cell', //enkel cell-edit (Excel-känsla)
-
     //Spara på blur/Enter
-    muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-      onBlur: (e) => commitCell(cell.row.index, cell.column.id, e.target.value),
-      onKeyDown: (e) => {
-        if (e.key === 'Enter') e.currentTarget.blur();
-      },
-    }),
-
     //enkel UX
     enableColumnResizing: true,
     enableStickyHeader: true,
